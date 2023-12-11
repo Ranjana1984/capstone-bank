@@ -1,0 +1,8 @@
+node{
+    stage("code checkout"){
+        git "https://github.com/Ranjana1984/capstone-bank.git"
+    }
+    stage("Ansible "){
+        ansiblePlaybook become: true, credentialsId: 'Ansible-login', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: 'Testplayb1.yml', vaultTmpPath: ''
+    }
+}
